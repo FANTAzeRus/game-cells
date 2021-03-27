@@ -1,52 +1,54 @@
 <template>
-  <div class="title">Игра "Угадай все ячейки"!</div>
-  <div class="board">
-    <div
-      class="cell"
-      v-for="cell in state.cells"
-      :key="cell.id"
-      :class="{
-        success:
-          (state.appStatus === gameStatusConst.showPrompt &&
-            cell.status === cellStatusConst.set) ||
-          cell.status === cellStatusConst.success,
-        error: cell.status === cellStatusConst.fail,
-      }"
-      @click="clickHandler(cell)"
-    ></div>
-  </div>
-  <div class="level">Сложность: {{ state.level }}</div>
-  <div class="score">Очки: {{ state.score }}</div>
-  <div class="score">Максимальные очки: {{ state.maxScore }}</div>
-  <div class="level">Максимальная сложность: {{ state.maxLevel }}</div>
-  <button
-    class="btn"
-    @click="newGame"
-    :disabled="state.appStatus !== gameStatusConst.stop"
-  >
-    Начать
-  </button>
-
-  <div
-    class="messagesWrapper"
-    v-if="
-      state.appStatus === gameStatusConst.levelComplete ||
-      state.appStatus === gameStatusConst.gameOver
-    "
-  >
-    <div class="gameOver" v-if="state.appStatus === gameStatusConst.gameOver">
-      Игра окончена!
-      <div class="newRecord" v-if="state.score > state.maxScore">
-        Вы установили новый рекорд {{ state.score }}!
-      </div>
+  <div class="appWrapper">
+    <div class="title">Игра "Угадай все ячейки"!</div>
+    <div class="board">
+      <div
+        class="cell"
+        v-for="cell in state.cells"
+        :key="cell.id"
+        :class="{
+          success:
+            (state.appStatus === gameStatusConst.showPrompt &&
+              cell.status === cellStatusConst.set) ||
+            cell.status === cellStatusConst.success,
+          error: cell.status === cellStatusConst.fail,
+        }"
+        @click="clickHandler(cell)"
+      ></div>
     </div>
-    <div
-      class="levelComplete"
-      v-if="state.appStatus === gameStatusConst.levelComplete"
+    <div class="level">Сложность: {{ state.level }}</div>
+    <div class="score">Очки: {{ state.score }}</div>
+    <div class="score">Максимальные очки: {{ state.maxScore }}</div>
+    <div class="level">Максимальная сложность: {{ state.maxLevel }}</div>
+    <button
+      class="btn"
+      @click="newGame"
+      :disabled="state.appStatus !== gameStatusConst.stop"
     >
-      Уровень пройден!
-      <div class="newRecord" v-if="state.score > state.maxScore">
-        Вы установили новый рекорд {{ state.score }}!
+      Начать
+    </button>
+
+    <div
+      class="messagesWrapper"
+      v-if="
+        state.appStatus === gameStatusConst.levelComplete ||
+        state.appStatus === gameStatusConst.gameOver
+      "
+    >
+      <div class="gameOver" v-if="state.appStatus === gameStatusConst.gameOver">
+        Игра окончена!
+        <div class="newRecord" v-if="state.score > state.maxScore">
+          Вы установили новый рекорд {{ state.score }}!
+        </div>
+      </div>
+      <div
+        class="levelComplete"
+        v-if="state.appStatus === gameStatusConst.levelComplete"
+      >
+        Уровень пройден!
+        <div class="newRecord" v-if="state.score > state.maxScore">
+          Вы установили новый рекорд {{ state.score }}!
+        </div>
       </div>
     </div>
   </div>

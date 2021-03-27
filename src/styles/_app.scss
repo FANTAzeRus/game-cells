@@ -1,4 +1,10 @@
 #app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appWrapper {
   margin-top: 2rem;
   width: 400px;
   display: flex;
