@@ -28,7 +28,7 @@
       {{
         state.appStatus === gameStatusConst.stop
           ? "Начать игру"
-          : "Игра зупущена"
+          : "Игра запущена"
       }}
     </button>
 
