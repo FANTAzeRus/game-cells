@@ -1,6 +1,6 @@
 # games-cells
 
-![GameScreen](https://github.com/FANTAzeRus/game-cells/blob/master/assets/GameScreen.png?raw=true?ver=2)
+![GameScreen](https://raw.githubusercontent.com/FANTAzeRus/game-cells/f08997125ea7f4db8d1b829af87288e74aa5c3c0/assets/GameScreen.png)
 
 ## Project setup
 
