@@ -1,0 +1,22 @@
+@import "./fonts";
+@import "./colors";
+@import "./app";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  color: $black;
+  font-size: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
