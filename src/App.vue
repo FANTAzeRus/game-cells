@@ -25,7 +25,11 @@
       @click="newGame"
       :disabled="state.appStatus !== gameStatusConst.stop"
     >
-      Начать
+      {{
+        state.appStatus === gameStatusConst.stop
+          ? "Начать игру"
+          : "Игра зупущена"
+      }}
     </button>
 
     <div
@@ -64,7 +68,7 @@ export default {
   name: "App",
   components: {},
   setup() {
-    const { level, score } = ls.getLS();
+    const { level, score } = Object(ls.getLS());
     const state = reactive({
       appStatus: gameStatusConst.stop,
       level: baseConst.startLevel,
